@@ -1,5 +1,5 @@
 # Variables
-CLUSTER_NAME=vprofile-eks-cluster3  # Bumped name to avoid conflicts with half-deleted stacks
+CLUSTER_NAME=vprofile-eks-cluster5
 REGION=ap-south-1
 NODE_NAME=Linux-nodes
 
@@ -9,7 +9,7 @@ if [ $? -eq 0 ]
 then
   echo "Credentials tested, proceeding with the cluster creation."
 
-  # Creation of EKS cluster running Ubuntu OS
+  # Creation of EKS cluster using native AL2023 AMI
   eksctl create cluster \
   --name $CLUSTER_NAME \
   --version 1.36 \
@@ -19,8 +19,7 @@ then
   --nodes-min 1 \
   --nodes-max 2 \
   --node-type t3.small \
-  --node-volume-size 30 \
-  --node-ami-family Ubuntu2204 \
+  --node-volume-size 20 \
   --managed
   
   if [ $? -eq 0 ]
