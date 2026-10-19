@@ -1,8 +1,8 @@
 # Variables
 CLUSTER_NAME=vprofile-eks-cluster
-REGION=us-east-2
+REGION=ap-south-1
 NODE_NAME=Linux-nodes
-KEY_NAME=vprofile-eks-key
+KEY_NAME=aug-10-key
 
 # Set AWS credentials before script execution
 
@@ -14,14 +14,14 @@ then
   # Creation of EKS cluster
   eksctl create cluster \
   --name $CLUSTER_NAME \
-  --version 1.20 \
+  --version 1.36 \
   --region $REGION \
   --nodegroup-name $NODE_NAME \
   --nodes 2 \
   --nodes-min 1 \
-  --nodes-max 4 \
-  --node-type t3.micro \
-  --node-volume-size 8 \
+  --nodes-max 3 \
+  --node-type t3.medium \
+  --node-volume-size 20 \
   --ssh-access \
   --ssh-public-key $KEY_NAME \
   --managed
