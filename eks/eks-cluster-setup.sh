@@ -1,5 +1,5 @@
 # Variables
-CLUSTER_NAME=vprofile-eks-cluster
+CLUSTER_NAME=vprofile-eks-cluster1
 REGION=ap-south-1
 NODE_NAME=Linux-nodes
 KEY_NAME=aug-10-key
